@@ -18,7 +18,7 @@
 #
 # --- BEGIN SCRIPT ---
 #
-# Uncomment and run line separately if factory reset is needed
+# Uncomment and run line separately for factory reset is needed
 # /system/reset-configuration no-defaults=yes
 
 /interface bridge
