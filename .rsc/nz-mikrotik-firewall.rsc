@@ -15,12 +15,10 @@
 # 3. accept ICMP
 # 4. accept to local loopback (for CAPsMAN)
 # 5. drop all not coming from LAN
-# 6. accept in ipsec policy
-# 7. accept out ipsec policy
-# 8. fasttrack
-# 9. accept established,related, untracked
-# 10. drop invalid
-# 11. drop all from WAN not DSTNATed
+# 6. fasttrack
+# 7. accept established,related,untracked
+# 8. drop invalid
+# 9. drop all from WAN not DSTNATed
 # ***NAT Masquerade rule added
 #
 # --- BEGIN SCRIPT ---
@@ -31,8 +29,6 @@ add action=drop chain=input comment="drop invalid" \ connection-state=invalid
 add action=accept chain=input comment="accept ICMP" \ protocol=icmp
 add action=accept chain=input comment="accept to local loopback (for CAPsMAN)" \  dst-address=127.0.0.1
 add action=drop chain=input comment="drop all not coming from LAN" \ in-interface-list=!LAN
-add action=accept chain=forward comment="accept in ipsec policy" \ ipsec-policy=in,ipsec
-add action=accept chain=forward comment="accept out ipsec policy" \ ipsec-policy=out,ipsec
 add action=fasttrack-connection chain=forward comment="fasttrack" \ connection-state=established,related
 add action=accept chain=forward comment="accept established,related, untracked" \ connection-state=established,related,untracked
 add action=drop chain=forward comment="drop invalid" \ connection-state=invalid

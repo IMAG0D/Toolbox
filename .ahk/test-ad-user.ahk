@@ -1,4 +1,4 @@
-﻿!F6::
+﻿!F2::
 Send Test
 Send {TAB 2}
 Send User

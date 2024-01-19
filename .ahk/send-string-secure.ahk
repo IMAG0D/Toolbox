@@ -3,8 +3,8 @@
 SendMode Input  ;
 SetWorkingDir %A_ScriptDir%  ;
 
-; Press Alt + F1 to trigger the script
-!F1::
+; Press Alt + F2 to trigger the script
+!F2::
 
 ; Set the path to your text file
 FilePath := "Path\To\Location\SecureString.txt"
