@@ -1,13 +1,12 @@
 # nz-mikrotik-firewall
 
-Requirements:
+**Requirements:**  
+- RouterOS  
+- **nz-mikrotik-firewall.rsc** *([see .rsc](https://github.com/IMAG0D/Toolbox/tree/main/.rsc))*
+#
+This script can be used in a Mikrotik (or any router with RouterOS) to configure and setup a firewall as well as nat masquerading. When run in sequence with **nz-mikrotik-config.rsc** *([see .rsc](https://github.com/IMAG0D/Toolbox/tree/main/.rsc))* you will have a complete router setup that allow internet connection with basic network security.
 
-- RouterOS
-- nz-mikrotik-firewall.rsc ([see .rsc](https://github.com/IMAG0D/Toolbox/tree/main/.rsc))
-
-This script can be used in a Mikrotik (or any router with RouterOS) to configure and setup a firewall as well as nat masquerading. When run in sequence with nz-mikrotik-config.rsc (see .rsc) you will have a complete router setup that allow internet connection with basic network security.
-
-Firewall Rules (in order)
+**Firewall Rules (in order)**
 
 1. accept established,related,untracked
 2. drop invalid" connection-state=invalid
@@ -20,7 +19,5 @@ Firewall Rules (in order)
 9. drop all from WAN not DSTNATed
 
 - NAT Masquerade rule added
-
-Notes:
 
 PLEASE MAKE SURE TO ADD A FIREWALL

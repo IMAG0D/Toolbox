@@ -1,9 +1,9 @@
 # set-printer-permissions
 
-<p class="callout info">**Requirements:**  
+**Requirements:**  
 - PowerShell  
-- **set-printer-permissions.ps1** *([see .ps1](https://github.com/IMAG0D/Toolbox/tree/main/.ps1))*</p>
-
+- **set-printer-permissions.ps1** *([see .ps1](https://github.com/IMAG0D/Toolbox/tree/main/.ps1))*
+#
 Self-explanatory script. This script contains 3 usable blocks depending on the outcome you want:
 
 **BLOCK 1**  
