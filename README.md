@@ -17,3 +17,4 @@ List of all home services currently in use:
 - Windows 10 & 11
 - Dashy - Self Hosted Dashboard
 - NAS - Synology (NFS)
+- Bookstack - Documentation Platform
