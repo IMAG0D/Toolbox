@@ -1,6 +1,6 @@
 # Toolbox
 
-Basic brief: Storage place for all regularly used scripts and resources used in a sysadmin env. (Private and Work use)
+Basic brief: Storage place for all regularly used scripts and resources used for sysadmin (Private and Work use)
 
 List of all home services currently in use:
 - Mikrotik x2 - RouterOS 7
@@ -16,3 +16,4 @@ List of all home services currently in use:
 - UniFi AP
 - Windows 10 & 11
 - Dashy - Self Hosted Dashboard
+- NAS - Synology (NFS)
