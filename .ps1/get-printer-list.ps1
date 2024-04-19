@@ -12,41 +12,28 @@
 # --- BEGIN SCRIPT ---
 
 # Get a list of printer objects
-$PrintServer = $env:COMPUTERNAME
-$printers = Get-WmiObject win32_printer -ComputerName $PrintServer | 
-    Foreach-Object{ 
-        $printer = $_.Name
-        $port = $_.PortName
-        $driver = $_.DriverName
-        Get-WmiObject win32_tcpipprinterport -ComputerName $PrintServer | 
-            Where-Object { $_.Name -eq $port } | 
-            Select-Object @{
-                n = "PrinterName"
-                e = { $printer }
-            },
-            HostAddress,
-            @{
-                n = "DriverName"
-                e = { $driver }
-            }
-    }
+$printers = Get-WmiObject Win32_Printer
 
 # Create an array to store printer information
-$printerInfo = @()
-
-# Populate the array with printer names, IPs, and driver names
-foreach ($printer in $printers) {
-    $printerInfo += [PSCustomObject]@{
-        Name = $printer.PrinterName
-        IPAddress = $printer.HostAddress -replace "^.*(?=\\\\)|^.*(?=\s)"
-        DriverName = $printer.DriverName
+$printerInfo = foreach ($printer in $printers) {
+    $port = if ($printer.PortName -match "^\\\\") { "Shared Network Port: $($printer.PortName)" }
+            else { 
+                $portObject = Get-WmiObject Win32_TCPIPPrinterPort | Where-Object { $_.Name -eq $printer.PortName }
+                if ($portObject) { $portObject.HostAddress }
+                else { "Local Port: $($printer.PortName)" }
+            }
+    
+    [PSCustomObject]@{
+        PrinterName = $printer.Name
+        Port = $port
+        Driver = $printer.DriverName
     }
 }
 
-# Sort the array by IP address
-$sortedPrinters = $printerInfo | Sort-Object IPAddress
+# Sort the array by printer name
+$sortedPrinters = $printerInfo | Sort-Object PrinterName
 
-# Display the sorted printer list with Name, IPAddress, and DriverName
-$sortedPrinters | Format-Table -AutoSize
+# Display the sorted printer list in a table format
+$sortedPrinters | Format-Table -AutoSize PrinterName, Port, Driver
 
 # --- END SCRIPT ---
