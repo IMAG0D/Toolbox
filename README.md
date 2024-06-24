@@ -1,6 +1,5 @@
 # Toolbox
-Description: Storage place for all regularly used scripts and resources used for sysadmin (Private and Work use)
-- is also used as a repo to showcase technical capacity without clogging up my CV
+Description: Storage place for all regularly used scripts and resources used for sysadmin (Private and Work use). Is also used as a repo to showcase technical capacity without clogging up my CV
 
 List of all home services currently in use:
 - Mikrotik x2 - RouterOS 7
